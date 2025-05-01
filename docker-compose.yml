@@ -1,0 +1,12 @@
+version: '3.9'
+services:
+  ssh.cyrhades.fr:
+    build: ssh
+  webssh.cyrhades.fr:
+    build: webssh
+    ports:
+    - ${PORT}:8888
+  centaure-sur-tore.cyrhades.fr:
+    image: anssi/fcsc2024-misc-centaure-sur-tore:latest
+    ports:
+      - ${PORT_SSH}:4000
