@@ -11,6 +11,6 @@ Bienvenue sur le serveur SSH de Cyrhades
 
 Utilisez netcat pour accéder au challenge sur le serveur centaure-sur-tore.cyrhades.fr!
 
-*****:~$ nc centaure-sur-tore.cyrhades.fr:4000
+*****:~$ nc centaure-sur-tore.cyrhades.fr 4000
 
 Bonne chance !
