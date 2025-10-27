@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="fr">
+    <meta charset="UTF-8">
+    <!--Page Title-->
+    <title>Hack-Oeil - Les CTFs de Cyrhades</title>
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="./assets/css/github.min.css">
+    <script src="./assets/js/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Vérifie si la fenêtre est dans une iframe
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', (event) => {
+                        const a = event.target.closest('a[href^="http"]');
+                        if (a) {
+                            event.preventDefault();
+                            window.parent.postMessage({
+                                type: "open-external",
+                                url: a.href
+                            }, "*");
+                        }
+                    });
+                });
+            }
+            // Active la coloration syntaxique :
+            if (window.hljs) {
+                hljs.highlightAll();
+            } else {
+                console.error("Highlight.js non chargé !");
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Challenge #443</h3>
+                            <h2 class="section-title">Centaure sur Tore</h2>
+                            <p>Dans le système d’Alpha Centauri, vous exploitez une ferme pour centaures installée sur
+                                un astéroïde torique. Les paturages sont organisés en prés carrés, séparés par des
+                                barrières disposées à des endroits prédéfinis. Il est possible à un centaure de passer
+                                d’un pré à un pré voisin de manière horizontale, vertical ou diagonale si une barrière
+                                ne bloque pas l’accès. Lors des passages en diagonale, le passage permet aux centaures
+                                de passer tout droit, mais il est trop étroit pour qu’il puisse y changer de direction
+                                (voir l’image en pièce jointe <code>example-directions.png</code> pour l’explication sur
+                                les
+                                déplacements possibles).
+                                <br /><br />
+                                Vous vous apprêtez à gérer <strong>deux centaures</strong>. Mais c’est la tuile, les
+                                centaures sont
+                                des animaux solitaires, il faut à tout prix éviter que les deux centaures puissent se
+                                rencontrer dans le même pré carré. Avant de les accueillir, vous n’avez le temps
+                                d’installer que <strong>trois barrières supplémentaires</strong> dans la zone : où
+                                devez-vous les
+                                placer pour pouvoir loger les deux bêtes sans qu’elles puissent se rencontrer ?
+                                <br /><br />
+                                Les prés carrés sont identifiés par un système de coordonnées, par exemple
+                                <code>(0, 1)</code>
+                                ou <code>(1, 2)</code>, et les emplacements pour les barrières sont identifés par une
+                                paire de
+                                coordonnées, par exemple <code>((0, 1), (1, 2))</code>.
+                                <br /><br />
+                                On donne un exemple en dimension 5x5 dans les figures jointes :
+                                <br /><br />
+                                - <code>example-empty.png</code> : exemple d’une ferme pour centaure torique avec des
+                                barrières
+                                placées entre les prés carrés.
+                                - <code>example-directions.png</code> : exemple de directions possibles avec un
+                                placement de
+                                barrières donné. Sur cet exemple, depuis le pré carré situé en (1, 1), un centaure peut
+                                aller en (2, 0), (0, 2) et (2, 2).
+                                - <code>example-solved.png</code> : exemple de barrière à ajouter pour isoler les deux
+                                centaures. Le programme attend comme entrée : <code>[ ((1, 1), (0, 2)), ((3, 1), (4, 2)),
+                                ((3, 3), (4, 3)) ]</code>. L’ordre des prés carrés n’est pas important, <code>((1, 1), (0,
+                                2))</code> et <code>((0, 2), (1, 1))</code> représente la même barrière.
+                                <br /><br />
+                                Une fois connecté au service ci-dessous, vous devrez placer trois barrières dans 100
+                                fermes générées aléatoirement. SI vous y parvenez, dans la limite de 30 secondes pour
+                                chaque ferme, vous obtiendrez le flag !
+                            </p>
+                            <h4>Fichiers à étudier</h4>
+                            <p>
+                                - example-empty.png<br />
+                                - example-directions.png<br />
+                                - example-solved.png
+                            </p>
+                            <hr>
+                            <table>
+                                <tr>
+                                    <td>example-empty.png</td>
+                                    <td>example-directions.png</td>
+                                    <td>example-solved.png</td>
+                                </tr>
+                                <tr>
+                                    <td><img src="./assets/images/example-empty.png"></td>
+                                    <td><img src="./assets/images/example-directions.png"></td>
+                                    <td><img src="./assets/images/example-solved.png"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>FCSC 2024</h3>
+                            <h2 class="section-title">Hackropole</h2>
+                            <p class="section-subtitle">
+                                Lien officiel :
+                                <a target="_blank"
+                                    href="https://hackropole.fr/fr/challenges/misc/fcsc2024-misc-centaure-sur-tore/">FCSC
+                                    2024 -
+                                    Centaure sur Tore
+                                </a>
+                                <br />
+                                Auteurs: jrr et<a target="_blank"
+                                    href="https://twitter.com/Cryptanalyse">Cryptanalyse</a>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Apprentissage</h3>
+                            <h2 class="section-title">Documentations et Vidéos</h2>
+                            <p class="section-subtitle">
+                                Aucune documentation pour le moment
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Aide</h3>
+                            <h2 class="section-title">Conseils et indices</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1175764601716092948">Fil sur
+                                    le Discord</a>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;"
+            aria-label="Remonter en haut de la page" title="Remonter en tête de site"></a>
+    </div>
+</body>
+
+</html>
