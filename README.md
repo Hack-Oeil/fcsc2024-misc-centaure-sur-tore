@@ -15,7 +15,7 @@ On donne un exemple en dimension 5x5 dans les figures jointes :
 Une fois connecté au service ci-dessous, vous devrez placer trois barrières dans 100 fermes générées aléatoirement. SI vous y parvenez, dans la limite de 30 secondes pour chaque ferme, vous obtiendrez le flag !
 
 
-Auteurs : jrr / [Cryptanalyse](https://twitter.com/Cryptanalyse)
+Auteurs : jrr / [Cryptanalyse](https://x.com/Cryptanalyse)
 
 Origine : [Centaure sur Tore](https://hackropole.fr/fr/challenges/misc/fcsc2024-misc-centaure-sur-tore/)
 
